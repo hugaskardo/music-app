@@ -1,44 +1,41 @@
 <body data-gr-c-s-loaded="true">
-<div class="container">
-  <header class="blog-header py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
-        <a class="text-muted" href="#">Songs Collection</a>
+  <div class="container">
+    <header class="blog-header py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+          <a class="text-muted" href="#">Songs Collection</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="jumbotron text-white rounded bg-dark">
+      <div class="col-md-9 px-0">
+        <h1 class="display-5 font-italic">Add, edit and find all your music !</h1>
       </div>
     </div>
-  </header>
 
-  <div class="jumbotron text-white rounded bg-dark">
-    <div class="col-md-9 px-0">
-      <h1 class="display-5 font-italic">Add, edit and find all your music !</h1>
-    </div>
+    {{add-song}}
+    
+      <div class="md-form mt-0">
+          {{input
+              value=searchValue
+              class="form-control" 
+              type="text" 
+              placeholder="Search by Artist name (Use Capital Letters)" 
+              aria-label="Search"
+          }}
+      </div>
+
+      {{song songs=filterSongs onEditMusic=(route-action 'editMusic' info)}}
+
   </div>
 
-  {{add-song}}
-    {{!-- <div class="md-form mt-0">
-        {{input
-            value=searchValue
-            class="form-control" 
-            type="text" 
-            placeholder="Search by song name" 
-            aria-label="Search"
-        }}
-    </div> --}}
-    
-    {{song songs=model.songs onEditMusic=(route-action 'editMusic' info)}}
 
-     {{!-- {{song songs=filterSongs onEditMusic=(route-action 'editMusic' info)}} --}}
-
-</div>
-
-
-<footer class="blog-footer">
-  <p>Test app for firelink.</p>
-  <p>
-    <a href="#">Back to top</a>
-  </p>
-</footer>
-
-
-{{outlet}}
+  <footer class="blog-footer">
+    <p>Test app for firelink.</p>
+    <p>
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+  {{outlet}}
 </body>

@@ -4,6 +4,7 @@ export default Model.extend({
 
     artistName: attr('string'),
     albumName: attr('string'),
+    albumDescription: attr('string'),
     geners: attr('string'),
     albumCover: attr('string'),
     yearOfRelease: attr('date')
