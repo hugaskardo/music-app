@@ -16,9 +16,9 @@ export default Route.extend({
         editMusic(info,currentSong, newData ,dataKey){
             this.store.findRecord('song', currentSong.id).then(song => {
 
+                console.log(newData)
                 song.set(dataKey, newData)
                 song.save()
-                
             })
         }
 

@@ -31,15 +31,43 @@
                 </li>
                 <li class="list-group-item">
                     <label >Album Name: </label>
-                    {{input  type="text" value=song.albumName  disabled=isDisabled }}
+                    {{input  
+                        type="text" 
+                        value=song.albumName 
+                        disabled=isDisabled
+                        doubleClick=(action 'toggleInput')  
+                        keyUp=(action 'editMusic' song song.albumName "albumName")
+                        focusOut=(action 'toggleInput')
+                        }}
                 </li>
                 <li class="list-group-item">
                     <label >Geners type: </label>
-                    {{input  type="text"  value=song.geners disabled=isDisabled }}
+                    {{input  
+                        type="text" 
+                        value=song.geners 
+                        disabled=isDisabled
+                        doubleClick=(action 'toggleInput')  
+                        keyUp=(action 'editMusic' song song.geners "geners")
+                        focusOut=(action 'toggleInput')
+                        }}
                 </li>
                 <li class="list-group-item">
-                    <label for="yearOfRelease">Releas date: </label>
-                    {{input  type="text" value=song.yearOfRelease  disabled=isDisabled }}
+                    <label>Releas date: </label>
+                    {{!-- {{pikaday-input  
+                        disabled=isDisabled
+                        doubleClick=(action 'toggleInput')  
+                        value=song.yearOfRelease 
+                        onSelection=(action 'editMusic' song song.yearOfRelease "yearOfRelease")
+                        focusOut=(action 'toggleInput')
+                        }} --}}
+                        {{pikaday-input  
+                        disabled=isDisabled
+                        doubleClick=(action 'toggleInput')  
+                        value=song.yearOfRelease 
+                        onClose=(action 'onClose' song "yearOfRelease")
+                        onSelection=(action 'editSongYear')
+                        focusOut=(action 'toggleInput')
+                        }}
                 </li>
             </ul>
         </div>

@@ -4,6 +4,7 @@ export default Component.extend({
     //store: Ember.inject.service(),
 
     isDisabled: true,
+    currentDate: null,
 
     searchValue: '',
 
@@ -28,11 +29,19 @@ export default Component.extend({
         },
 
         editMusic(song, currentElemntData, dataKey){
-
             this.get('onEditMusic')(song,currentElemntData,dataKey)
             // this.store.findRecord('song', song.id).then( song =>{
                 
             // })
+        },
+
+        editSongYear(value){
+           this.set('currentDate',value)
+        },
+
+        onClose(song, dataKey){
+            this.send('editMusic', song, this.get('currentDate'), dataKey )
+            this.set('currentDate', null)
         }
     }
 });
