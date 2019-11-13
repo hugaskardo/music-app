@@ -1,69 +1,69 @@
 <div class="row mb-2">   
-{{#if songs.length}}
-    {{#each songs as |song index| }}
-       <div class="card" style="width: 30%; margin:1%">
-            <img src={{song.albumCover}} class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Album's {{song.albumName}} description: </h5>
-                <p class="card-text">{{song.albumDescription}}</p>
+    {{#if songs.length}}
+        {{#each songs as |song index| }}
+        <div class="card" style="width: 30%; margin:1%">
+                <img src={{song.albumCover}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Album's {{song.albumName}} description: </h5>
+                    <p class="card-text">{{song.albumDescription}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <label >Artist Name: </label>
+                        {{input  
+                            type="text" 
+                            value=song.artistName 
+                            disabled=isDisabled
+                            doubleClick=(action 'toggleInput')  
+                            keyUp=(action 'editMusic' song song.artistName "artistName")
+                            focusOut=(action 'toggleInput')
+                        }}
+                    </li>
+                    <li class="list-group-item">
+                        <label >Album Name: </label>
+                        {{input  
+                            type="text" 
+                            value=song.albumName 
+                            disabled=isDisabled
+                            doubleClick=(action 'toggleInput')  
+                            keyUp=(action 'editMusic' song song.albumName "albumName")
+                            focusOut=(action 'toggleInput')
+                            }}
+                    </li>
+                    <li class="list-group-item">
+                        <label >Geners type: </label>
+                        {{input  
+                            type="text" 
+                            value=song.geners 
+                            disabled=isDisabled
+                            doubleClick=(action 'toggleInput')  
+                            keyUp=(action 'editMusic' song song.geners "geners")
+                            focusOut=(action 'toggleInput')
+                            }}
+                    </li>
+                    <li class="list-group-item">
+                        <label>Releas date: </label>
+                        {{!-- {{pikaday-input  
+                            disabled=isDisabled
+                            doubleClick=(action 'toggleInput')  
+                            value=song.yearOfRelease 
+                            onSelection=(action 'editMusic' song song.yearOfRelease "yearOfRelease")
+                            focusOut=(action 'toggleInput')
+                            }} --}}
+                            {{pikaday-input  
+                            disabled=isDisabled
+                            doubleClick=(action 'toggleInput')  
+                            value=song.yearOfRelease 
+                            onClose=(action 'onClose' song "yearOfRelease")
+                            onSelection=(action 'editSongYear')
+                            focusOut=(action 'toggleInput')
+                            }}
+                    </li>
+                </ul>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <label >Artist Name: </label>
-                    {{input  
-                        type="text" 
-                        value=song.artistName 
-                        disabled=isDisabled
-                        doubleClick=(action 'toggleInput')  
-                        keyUp=(action 'editMusic' song song.artistName "artistName")
-                        focusOut=(action 'toggleInput')
-                        }}
-                </li>
-                <li class="list-group-item">
-                    <label >Album Name: </label>
-                    {{input  
-                        type="text" 
-                        value=song.albumName 
-                        disabled=isDisabled
-                        doubleClick=(action 'toggleInput')  
-                        keyUp=(action 'editMusic' song song.albumName "albumName")
-                        focusOut=(action 'toggleInput')
-                        }}
-                </li>
-                <li class="list-group-item">
-                    <label >Geners type: </label>
-                    {{input  
-                        type="text" 
-                        value=song.geners 
-                        disabled=isDisabled
-                        doubleClick=(action 'toggleInput')  
-                        keyUp=(action 'editMusic' song song.geners "geners")
-                        focusOut=(action 'toggleInput')
-                        }}
-                </li>
-                <li class="list-group-item">
-                    <label>Releas date: </label>
-                    {{!-- {{pikaday-input  
-                        disabled=isDisabled
-                        doubleClick=(action 'toggleInput')  
-                        value=song.yearOfRelease 
-                        onSelection=(action 'editMusic' song song.yearOfRelease "yearOfRelease")
-                        focusOut=(action 'toggleInput')
-                        }} --}}
-                        {{pikaday-input  
-                        disabled=isDisabled
-                        doubleClick=(action 'toggleInput')  
-                        value=song.yearOfRelease 
-                        onClose=(action 'onClose' song "yearOfRelease")
-                        onSelection=(action 'editSongYear')
-                        focusOut=(action 'toggleInput')
-                        }}
-                </li>
-            </ul>
-        </div>
-    {{/each}}
-
+        {{/each}}
     {{else}}
-{{/if}}
+        <p>You have no songs yet</p>
+    {{/if}}
 </div>
 {{yield}}

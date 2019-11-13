@@ -16,17 +16,17 @@
 
     {{add-song}}
     
-      <div class="md-form mt-0">
-          {{input
-              value=searchValue
-              class="form-control" 
-              type="text" 
-              placeholder="Search by Artist name (Use Capital Letters)" 
-              aria-label="Search"
-          }}
-      </div>
+    <div class="md-form mt-0">
+        {{input
+            value=searchValue
+            class="form-control" 
+            type="text" 
+            placeholder="Search by Artist name (Use Capital Letters)" 
+            aria-label="Search"
+        }}
+    </div>
 
-      {{song songs=filterSongs onEditMusic=(route-action 'editMusic' info)}}
+    {{song songs=filterSongs onEditMusic=(route-action 'editMusic' info)}}
 
   </div>
 

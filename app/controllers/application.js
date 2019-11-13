@@ -1,10 +1,11 @@
 import Controller from '@ember/controller';
+import { filter } from '@ember/object/computed';
 
 export default Controller.extend({
 
     searchValue: '',
 
-    filterSongs: Ember.computed.filter('model.songs', function(song){
+    filterSongs: filter('model.songs', function(song){
         //  if(this.get('searchValue') === ''){
         //     return song
         //  } else {
