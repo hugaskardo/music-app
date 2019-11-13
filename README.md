@@ -1,7 +1,11 @@
 # music-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This app was made for the linkfire interview,
+the application's current functions are : 
+  Search by Artist Name, you will have to use capital letters, or just write part of the words
+  Edit the Album info, double click and the new data will be "saved"
+  
+  NOTES: remeber this app uses ember cli mirage, so you are not actually perserving any data.
 
 ## Prerequisites
 
